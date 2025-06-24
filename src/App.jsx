@@ -45,10 +45,11 @@ export default function App() {
       url: "https://gta-react-project.vercel.app/",
     },
     {
-      title: "Bubble Game",
-      desc: "A fun and interactive old-school game where you collect diamonds, avoid obstacles, and flip to finish the game.",
-      stack: ["JavaScript", "Canvas", "CSS"],
-      type: "Game"
+      title: "My Task Manager",
+      desc: "A fun and interactive Task Manager where you add tasks, delete tasks, search tasks and check list the tasks.",
+      stack: ["React JS", "Javascript", "Tailwind CSS"],
+      type: "Game",
+      url: "https://task-manager-git-main-yogeetas-projects.vercel.app/"
     }
   ];
 
