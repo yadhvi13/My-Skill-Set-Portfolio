@@ -38,11 +38,11 @@ export default function App() {
       url: "https://yogeeta-portfolio-delta.vercel.app/",
     },
     {
-      title: "GTA-VI-Clone",
-      desc: "Clean platform-clone made with React and Tailwind CSS, Provides the view of GTA-VI.",
-      stack: ["React", "Tailwind CSS", "Frontend", "Framer Motion"],
-      type: "Web App",
-      url: "https://gta-react-project.vercel.app/",
+      title: "StudyWay Website",
+      desc: "A Responsive Website for a Study Platform.",
+      stack: ["HTML5", "CSS3", "JavaScript"],
+      type: "Game",
+      url: "https://study-way.vercel.app/"
     },
     {
       title: "My Task Manager",
@@ -50,7 +50,23 @@ export default function App() {
       stack: ["React JS", "Javascript", "Tailwind CSS"],
       type: "Game",
       url: "https://task-manager-git-main-yogeetas-projects.vercel.app/"
-    }
+    },
+    {
+      title: "CodeHelp Clone",
+      desc: "A Responsive Website for a Study Platform.",
+      stack: ["HTML5", "CSS3", "JavaScript","Animation"],
+      type: "Web App",
+      url: "https://code-help-2-0.vercel.app/",
+    },
+    {
+      title: "GTA-VI-Clone",
+      desc: "Clean platform-clone made with React and Tailwind CSS, Provides the view of GTA-VI.",
+      stack: ["React", "Tailwind CSS", "Frontend", "Framer Motion"],
+      type: "Web App",
+      url: "https://gta-react-project.vercel.app/",
+    },
+    
+    
   ];
 
   const experiences = {
@@ -69,7 +85,13 @@ export default function App() {
         title: "Frontend Developer",
         company: "Personal Project",
         year: "2025",
-        points: ["Built responsive clone website of GTA-VI and reusable UI components using React."]
+        points: ["Built responsive portfolio website, and reusable UI components using React."]
+      },
+      {
+        title: "MERN Stack Developer Intern",
+        company: "CodeC",
+        year: "2025",
+        points: ["Learned MERN Stack and built a project using it."]
       }
     ],
 
@@ -88,17 +110,20 @@ export default function App() {
   return (
     <main className="bg-[#0f0f0f] text-white font-sans">
       {/* Navbar */}
-      <header className="fixed top-0 left-0 w-full bg-[#0f0f0f] z-60 px-8 py-4 flex items-center justify-between border-b border-gray-800">
+      <header className="fixed top-0 left-0 w-full bg-[#000000] z-60 px-8 py-4 flex items-center justify-between border-b border-gray-800">
         <div className="flex items-center gap-2">
           <img src={avatar} alt="avatar" className="w-12 h-12 border-white rounded-full object-cover" />
+          <h2 className="text-2xl ml-2 font-bold text-red-500">My </h2>
+             <span className="text-white-300 font-bold text-2xl">Portfolio</span>
+          {/* </h2> */}
         </div>
         <nav className="hidden md:flex space-x-6">
           {navItems.map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="text-gray-400 hover:text-white transition">
+            <a key={item} href={`#${item.toLowerCase()}`} className="text-gray-400 hover:text-white text-lg transition">
               {item}
             </a>
           ))}
-           <a href="Yogeeta_Resume_Updated.pdf"  className = "text-white bg-blue-600 px-4 py-1 rounded hover:bg-blue-700" >
+           <a href="Yogeeta_Resume_Updated.pdf"  className = "text-white font-bold bg-red-600 px-4 py-1 rounded hover:bg-red-700" >
               Resume
             </a>
         </nav>
@@ -130,13 +155,13 @@ export default function App() {
         <div className="w-48 h-48 rounded-full border-4 border-white mb-4 overflow-hidden">
           <img src={avatar} alt="Avatar" className="w-full h-full object-cover" />
         </div>
-        <h2 className="text-2xl">Hi I'm <span className="text-yellow-300 font-bold">Yogeeta</span></h2>
+        <h2 className="text-2xl font-bold text-white-500">Hi I'm <span className="text-yellow-300 font-bold">Yogeeta</span></h2>
         <h1 className="text-4xl md:text-5xl font-bold text-center max-w-xl">Building application products, brands, and experience.</h1>
         <p className="mt-4 text-center max-w-md text-gray-300">
           A Frontend Developer and Visual Designer with experience in web design, brand identity, and product design.
         </p>
         <div className="mt-6 flex gap-4">
-          <button className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">CONNECT WITH ME</button>
+          <button className="bg-red-600 text-white px-4 py-2 font-bold rounded-lg hover:bg-red-700">CONNECT WITH ME</button>
           <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">WHATSAPP MODE</button>
         </div>
       </section>
