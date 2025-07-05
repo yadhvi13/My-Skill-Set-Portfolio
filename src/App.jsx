@@ -4,26 +4,53 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaInstagram, FaLinkedin, FaEnvelope, FaPhone, FaLaptopCode } from "react-icons/fa";
 import avatar from "./assets/yogeeta.png";
+import emailjs from 'emailjs-com';
+
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
   const [experienceTab, setExperienceTab] = useState("Work Experience");
+  const [isSending, setIsSending] = useState(false);
   const form = useRef();
 
-  const sendEmail = (e)=>{
+  // const sendEmail = (e)=>{
+  //   e.preventDefault();
+  //   emailjs.sendForm(
+  //     'YOUR_SERVICE_ID',
+  //     'YOUR_TEMPLATE_ID',
+  //     form.current,
+  //     'YOUR_PUBLIC_KEY'
+  //   ).then(
+  //     () => alert("Message sent successfully!"),
+  //     (error) => alert("Message failed: " + error.text)
+  //   );
+  //   e.target.reset();
+  // };
+
+  const sendEmail = (e) => {
     e.preventDefault();
-    emailjs.sendForm(
-      'YOUR_SERVICE_ID',
-      'YOUR_TEMPLATE_ID',
-      form.current,
-      'YOUR_PUBLIC_KEY'
-    ).then(
-      () => alert("Message sent successfully!"),
-      (error) => alert("Message failed: " + error.text)
-    );
-    e.target.reset();
+    setIsSending(true); // start loading
+  
+    emailjs
+      .sendForm(
+        'service_e3iwip1',
+        'template_txue1ev',
+        form.current,
+        'xQpDnAjx50mk1rHwR'
+      )
+      .then(() => {
+        alert("Message sent successfully!");
+        e.target.reset();
+      })
+      .catch((error) => {
+        alert("Message failed: " + error.text);
+      })
+      .finally(() => {
+        setIsSending(false); // stop loading
+      });
   };
+  
 
 
   const navItems = ["About", "Projects", "Experience", "Contact"];
@@ -31,41 +58,40 @@ export default function App() {
 
   const projects = [
     {
-      title: "Portfolio Website",
+      title: "Portfolio Website UI",
       desc: "A sleek, responsive portfolio built with React and Tailwind CSS.",
       stack: ["React", "Tailwind CSS"],
-      type: "Web App",
+      type: "UI/UX",
       url: "https://yogeeta-portfolio-delta.vercel.app/",
     },
     {
-      title: "StudyWay Website",
+      title: "StudyWay Website UI",
       desc: "A Responsive Website for a Study Platform.",
       stack: ["HTML5", "CSS3", "JavaScript"],
-      type: "Game",
+      type: "UI/UX",
       url: "https://study-way.vercel.app/"
     },
     {
-      title: "My Task Manager",
+      title: "My Task Manager UI",
       desc: "A fun and interactive Task Manager where you add tasks, delete tasks, search tasks and check list the tasks.",
       stack: ["React JS", "Javascript", "Tailwind CSS"],
-      type: "Game",
+      type: "UI/UX",
       url: "https://task-manager-git-main-yogeetas-projects.vercel.app/"
     },
     {
-      title: "CodeHelp Clone",
+      title: "CodeHelp UI-Clone",
       desc: "A Responsive Website for a Study Platform.",
       stack: ["HTML5", "CSS3", "JavaScript","Animation"],
       type: "Web App",
       url: "https://code-help-2-0.vercel.app/",
     },
     {
-      title: "GTA-VI-Clone",
-      desc: "Clean platform-clone made with React and Tailwind CSS, Provides the view of GTA-VI.",
-      stack: ["React", "Tailwind CSS", "Frontend", "Framer Motion"],
+      title: "Currency-Convertor",
+      desc: "Clean platform-clone made with React and Tailwind CSS, to convert currencies.",
+      stack: ["React", "Tailwind CSS", "Frontend", "API"],
       type: "Web App",
-      url: "https://gta-react-project.vercel.app/",
-    },
-    
+      url: "https://currency-convertor-psi-five.vercel.app/",
+    }, 
     
   ];
 
@@ -105,7 +131,7 @@ export default function App() {
     ],
   };
 
-  const categories = ["All", "Web App", "Game", "UI/UX"];
+  const categories = ["All", "Web App", "UI/UX" , "Game"];
 
   return (
     <main className="bg-[#0f0f0f] text-white font-sans">
@@ -200,10 +226,10 @@ export default function App() {
                       animate-borderGlow bg-[length:400%_400%] blur-sm z-0"></div>
 
       <div className="relative bg-[#1e1e1e] p-6 rounded-xl z-10 border border-gray-700">
-        <h3 className="text-xl font-bold text-green-400 mb-4">Language</h3>
+        <h3 className="text-xl font-bold text-green-400 mb-4">Programming</h3>
         <ul className="text-white space-y-2 text-sm">
-          <li>📌 Problem Solving</li>
-          <li>🍃 Data Structure and Algorithms</li>
+          <li>📌 Java</li>
+          <li>🍃 Data Structres and Algorithm</li>
           <li>🟢 OOPS</li>
         </ul>
       </div>
@@ -250,7 +276,7 @@ export default function App() {
           {projects
             .filter(p => activeCategory === "All" || p.type === activeCategory)
             .map((project, idx) => (
-              <div key={idx} className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-700 shadow -inset-[2px] rounded-xl bg-gradient-to-r from-blue-500 via-pink-500 to-yellow-400 
+              <div key={idx} className="bg-[#1e1e1e] p-6 border border-gray-700 shadow -inset-[2px] rounded-xl bg-gradient-to-r from-blue-500 via-pink-500 to-yellow-400 
                       animate-borderGlow bg-[length:400%_400%] -sm z-0">
                 <h3 className="text-xl font-semibold mb-2 text-black-700">{project.title}</h3>
                 <p className="text-gray-300 mb-3">{project.desc}</p>
@@ -322,7 +348,7 @@ export default function App() {
             </div>
           </div>
           <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-700">
-            <form className="space-y-4">
+            {/* <form className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
                 <input type="text" placeholder="Name" className="bg-gray-800 p-3 rounded text-white w-full" />
                 <input type="email" placeholder="Email" className="bg-gray-800 p-3 rounded text-white w-full" />
@@ -340,7 +366,70 @@ export default function App() {
               <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded">
                 Send Message
               </button>
-            </form>
+            </form> */}
+
+<form ref={form} onSubmit={sendEmail} className="space-y-4">
+  <div className="grid md:grid-cols-2 gap-4">
+    <input
+      type="text"
+      name="name"
+      placeholder="Name"
+      className="bg-gray-800 p-3 rounded text-white w-full"
+      required
+    />
+    <input
+      type="email"
+      name="email"
+      placeholder="Email"
+      className="bg-gray-800 p-3 rounded text-white w-full"
+      required
+    />
+  </div>
+  <div className="grid md:grid-cols-2 gap-4">
+    <input
+      type="tel"
+      name="phone"
+      placeholder="Phone"
+      className="bg-gray-800 p-3 rounded text-white w-full"
+    />
+    <select
+      name="category"
+      className="bg-gray-800 p-3 rounded text-white w-full"
+      required
+    >
+      <option value="">Select</option>
+      <option value="General">General</option>
+      <option value="Collaboration">Collaboration</option>
+      <option value="Freelance">Freelance</option>
+    </select>
+  </div>
+  <textarea
+    name="message"
+    placeholder="Please write your message..."
+    rows="5"
+    className="bg-gray-800 p-3 rounded text-white w-full"
+    required
+  ></textarea>
+  <button
+  type="submit"
+  disabled={isSending}
+  className={`bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded ${isSending ? "opacity-50 cursor-not-allowed" : ""}`}
+>
+  {isSending ? (
+  <span className="flex items-center gap-2">
+    <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
+      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+    </svg>
+    Sending...
+  </span>
+) : "Send Message"}
+</button>
+
+</form>
+
+
+
           </div>
         </div>
         <div className="text-center mt-12">
