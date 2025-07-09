@@ -1,5 +1,4 @@
 
-
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaInstagram, FaLinkedin, FaEnvelope, FaPhone, FaLaptopCode } from "react-icons/fa";
@@ -92,6 +91,13 @@ export default function App() {
       type: "Web App",
       url: "https://currency-convertor-psi-five.vercel.app/",
     }, 
+    {
+      title: "Music Player UI/UX",
+      desc: "A premium UI/UX designed Music Player App",
+      stack: ["HTML5","CSS3","Javacript"],
+      type: "Web App",
+      url: "https://music-player-git-main-yogeetas-projects.vercel.app/",
+    }, 
     
   ];
 
@@ -149,7 +155,7 @@ export default function App() {
               {item}
             </a>
           ))}
-           <a href="Yogeeta_Resume_Updated.pdf"  className = "text-white font-bold bg-red-600 px-4 py-1 rounded hover:bg-red-700" >
+           <a href="Yogeeta Final Resume.pdf"  className = "text-white font-bold bg-red-600 px-4 py-1 rounded hover:bg-red-700" >
               Resume
             </a>
         </nav>
