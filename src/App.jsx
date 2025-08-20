@@ -424,8 +424,8 @@ export default function App() {
           <h4 className="text-lg font-semibold text-white mb-2">Follow Me On</h4>
           <div className="flex justify-center space-x-6 text-xl">
             <a href="#" className="text-pink-500"><FaInstagram /></a>
-            <a href="#" className="text-blue-500"><FaLinkedin /></a>
-            <a href="#" className="text-white"><FaGithub /></a>
+            <a href="https://www.linkedin.com/in/yogeeta-752388331/" className="text-blue-500"><FaLinkedin /></a>
+            <a href="https://github.com/yadhvi13" className="text-white"><FaGithub /></a>
           </div>
         </div>
       </section>
