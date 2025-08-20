@@ -13,19 +13,6 @@ export default function App() {
   const [isSending, setIsSending] = useState(false);
   const form = useRef();
 
-  // const sendEmail = (e)=>{
-  //   e.preventDefault();
-  //   emailjs.sendForm(
-  //     'YOUR_SERVICE_ID',
-  //     'YOUR_TEMPLATE_ID',
-  //     form.current,
-  //     'YOUR_PUBLIC_KEY'
-  //   ).then(
-  //     () => alert("Message sent successfully!"),
-  //     (error) => alert("Message failed: " + error.text)
-  //   );
-  //   e.target.reset();
-  // };
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -98,6 +85,13 @@ export default function App() {
       type: "Web App",
       url: "https://music-player-git-main-yogeetas-projects.vercel.app/",
     }, 
+    {
+      title: "Bensik-Food UI/UX",
+      desc: "A premium UI/UX Food Website",
+      stack: ["HTML5","CSS3","Javacript"],
+      type: "Web App",
+      url: "https://bensik-food.vercel.app/",
+    }, 
     
   ];
 
@@ -124,6 +118,12 @@ export default function App() {
         company: "CodeC",
         year: "2025",
         points: ["Learned MERN Stack and built a project using it."]
+      },
+      {
+        title: "Selected Contributor in GirlScript Summer of Code",
+        company: "GSSoC",
+        year: "2025",
+        points: ["Contributing to the Open-source projects in GSSoC-2025"]
       }
     ],
 
@@ -354,25 +354,7 @@ export default function App() {
             </div>
           </div>
           <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-700">
-            {/* <form className="space-y-4">
-              <div className="grid md:grid-cols-2 gap-4">
-                <input type="text" placeholder="Name" className="bg-gray-800 p-3 rounded text-white w-full" />
-                <input type="email" placeholder="Email" className="bg-gray-800 p-3 rounded text-white w-full" />
-              </div>
-              <div className="grid md:grid-cols-2 gap-4">
-                <input type="tel" placeholder="Phone" className="bg-gray-800 p-3 rounded text-white w-full" />
-                <select className="bg-gray-800 p-3 rounded text-white w-full">
-                  <option>Select</option>
-                  <option>General</option>
-                  <option>Collaboration</option>
-                  <option>Freelance</option>
-                </select>
-              </div>
-              <textarea placeholder="Please write your message..." rows="5" className="bg-gray-800 p-3 rounded text-white w-full"></textarea>
-              <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded">
-                Send Message
-              </button>
-            </form> */}
+            
 
 <form ref={form} onSubmit={sendEmail} className="space-y-4">
   <div className="grid md:grid-cols-2 gap-4">
